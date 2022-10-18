@@ -37,6 +37,9 @@ public:
 	{
 		ins = i;
 	};
+	void test() {
+		cout << endl << endl;
+	}
 
 private:
 	double sal;
@@ -48,18 +51,34 @@ class Professional : public Employee
 {
 
 public:
-	double calcSalary() {
-		const double monthlySalary = 5000; //5000$ monthly salary
+	double calcSalary(double m) {
+		const double monthlySalary = m; //5000$ monthly salary
 		return monthlySalary;
 	}
-	int vacationDays() {
-		const int paidVacation = 15; //15 days paid vacation per year
+	int vacationDays(int d) {
+		const int paidVacation = d; //15 days paid vacation per year
 		return paidVacation;
 	}
-	double healthCare() {
-		const double healthInsurance = 7000; //7000$ per year
+	double healthCare(double h) {
+		const double healthInsurance = h; //7000$ per year
 		return healthInsurance;
 	}
+	void setSal(double s)
+	{
+		monthSal = s;
+	}
+	void setVac(int v)
+	{
+		vacation = v;
+	}
+	void setIns(double i)
+	{
+		insurance = i;
+	}
+private:
+	double monthSal;
+	int vacation;
+	double insurance;
 };
 
 class Nonprofessional : public Employee
@@ -107,11 +126,11 @@ class Nonprofessional : public Employee
 	{
 		insurance = i;
 	}
+	
 private:
 	double weekSal;
 	int vacation;
 	double insurance;
-
 };
 
 
