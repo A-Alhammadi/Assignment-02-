@@ -18,9 +18,18 @@ int main() {
 	cout << "Enter the number of hours the employee works in a week: " << endl;
 	cin >> hours;
 
-	nonprofessional->calcSalary(hours);
-	nonprofessional->vacationDays(hours);
-	nonprofessional->healthCare(hours);
+	//nonprofessional->calcSalary(hours);
+	double s = nonprofessional->calcSalary(hours);
+	nonprofessional->setSal(s);
+
+	//nonprofessional->vacationDays(hours);
+	int v = nonprofessional->vacationDays(hours);
+	nonprofessional->setVac(v);
+
+	//nonprofessional->healthCare(hours);
+	double i = nonprofessional->healthCare(hours);
+	nonprofessional->setIns(i);
+	
 
 
 
