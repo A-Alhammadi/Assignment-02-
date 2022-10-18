@@ -6,6 +6,7 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
@@ -24,6 +25,23 @@ public:
 		double ins = 0;
 		return ins;
 	}
+	virtual void setSal(int s) 
+	{
+		sal = s;
+	};
+	virtual void setVac(int v)
+	{
+		vac = v;
+	};
+	virtual void setIns(int i) 
+	{
+		ins = i;
+	};
+
+private:
+	double sal;
+	int vac;
+	int ins;
 };
 
 class Professional : public Employee
@@ -48,8 +66,8 @@ class Nonprofessional : public Employee
 {
 	double calcSalary(double hours)
 	{
-		const double rate = 15;
-		double weeklySalary = hours * rate;
+		const double rate = 18; //18$ per hour
+		double weeklySalary = hours * rate; //weekly hours will be asked for and inputed and weekly salary calculated
 		cout << endl << " The weekly salary for this employee is: " << weeklySalary << endl;
 		return weeklySalary;
 	}
@@ -57,7 +75,7 @@ class Nonprofessional : public Employee
 	int vacationDays(double hours)
 	{
 		const double days = 0.006667; //multiplied by the hours worked, this would be 1 day per 150 hours worked
-		double paidVacation = (days * hours) * 52;
+		int paidVacation = round((days * hours) * 52);
 		cout << endl << " The number of paid vaction days for this employee per year will be: " << paidVacation << endl;
 		return paidVacation;
 	}
@@ -77,6 +95,23 @@ class Nonprofessional : public Employee
 		cout << endl << " The monthly health insurance for this employee will be: " << insurance << endl;
 		return insurance;
 	}
+	void setSal(int s) 
+	{
+		weekSal = s;
+	}
+	void setVac(int v)
+	{
+		vacation = v;
+	}
+	void setIns(double i) 
+	{
+		insurance = i;
+	}
+private:
+	double weekSal;
+	int vacation;
+	double insurance;
+
 };
 
 
